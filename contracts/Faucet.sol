@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: MIT
-pragma solidity =0.6.12;
+pragma solidity >=0.6.12;
+// pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
+// import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract Faucet is Ownable {
+contract Faucet {
   IERC20 public token;
 
   uint256 public amount;
@@ -33,11 +34,11 @@ contract Faucet is Ownable {
     return token.balanceOf(address(this));
   }
 
-  function setAmount(uint256 _amount) public onlyOwner {
+  function setAmount(uint256 _amount) public {
     amount = _amount;
   }
 
-  function setFrequency(uint256 _frequency) public onlyOwner {
+  function setFrequency(uint256 _frequency) public {
     frequency = _frequency;
   }
 }
